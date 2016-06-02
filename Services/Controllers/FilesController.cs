@@ -43,9 +43,9 @@ namespace Services.Controllers
             //    return this.BadRequest();
             //}
 
-            var fileText = "hello there";
+            var fileText = @"C:\Repos\FTP DEMO\uploaded.txt";
             FileInfo fileToUpload = new FileInfo(fileText);
-            FtpWebRequest request = (FtpWebRequest)WebRequest.Create("" + fileToUpload.Name);
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create("ftp://127.0.0.1/" + fileToUpload.Name);
 
             request.Method = WebRequestMethods.Ftp.UploadFile;
             request.Credentials = new NetworkCredential(this.username, this.password);
